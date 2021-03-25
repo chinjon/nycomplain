@@ -1,7 +1,16 @@
 require('dotenv').config()
 const axios = require('axios')
+const fs = require('fs');
 
-const searchQuery = `$where=created_date between '2017-12-31T20:00:00' and '2017-12-31T23:59:59'`;
+const storeData = (data, path) => {
+  try {
+    fs.writeFileSync(path, JSON.stringify(data))
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+const searchQuery = `$where=created_date between '2021-02-24T01:00:00' and '2021-02-24T01:01:59'`;
 
 axios({
   method: 'get',
@@ -12,5 +21,6 @@ axios({
   }
 })
   .then(function (response) {
-    console.log(response)
+    storeData(response.data, 'text.json')
+    // console.log(response)
   });
