@@ -24,5 +24,4 @@ axios({
 })
   .then(function (response) {
     storeData(response.data, 'text.json')
-    // console.log(response)
   });

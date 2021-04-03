@@ -1,24 +1,26 @@
 {
-	"name": "nyc_is_killing_me",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "svelte-kit dev",
-		"build": "svelte-kit build",
-		"start": "svelte-kit start"
-	},
-	"dependencies": {
-		"axios": "^0.21.1",
-		"date-fns": "^2.19.0"
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-node": "next",
-		"@sveltejs/kit": "next",
-		"dotenv": "^8.2.0",
-		"svelte": "^3.29.0",
-		"vite": "^2.1.0"
-	},
-	"type": "module",
-	"engines": {
-		"node": ">= 12.17.0"
-	}
+  "name": "nyc_is_killing_me",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.21.1",
+    "date-fns": "^2.19.0",
+    "inferno": "^7.4.8",
+    "inferno-scripts": "7.0.4"
+  },
+  "scripts": {
+    "start": "inferno-scripts start",
+    "build": "inferno-scripts build",
+    "test": "inferno-scripts test",
+    "eject": "inferno-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "inferno-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
