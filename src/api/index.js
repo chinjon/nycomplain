@@ -1,7 +1,6 @@
-import dotenv from 'dotenv'
-dotenv.config()
-import axios from 'axios'
-import fs from 'fs'
+require('dotenv').config()
+const axios = require('axios');
+const fs =require('fs')
 
 
 const storeData = (data, path) => {
