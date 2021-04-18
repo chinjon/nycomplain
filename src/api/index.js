@@ -7,6 +7,11 @@ if (!globalThis.fetch) {
 	globalThis.fetch = fetch;
 }
 
+/**
+ * @description Abstraction for writing data to JSON file
+ * @param {Object} data 
+ * @param {String} path 
+ */
 const storeData = (data, path) => {
   try {
     fs.writeFileSync(path, JSON.stringify(data))
