@@ -3,10 +3,6 @@ const fetch = require('node-fetch');
 const fs = require('fs');
 const searchQuery = `$where=created_date between '2021-02-24T01:00:00' and '2021-02-24T01:01:59'`;
 
-if (!globalThis.fetch) {
-	globalThis.fetch = fetch;
-}
-
 /**
  * @description Abstraction for writing data to JSON file
  * @param {Object} data 
