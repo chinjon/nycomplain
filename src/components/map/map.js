@@ -25,10 +25,9 @@ class Map extends Component {
   }
 
   render() {
-    console.log(this.state.markerData)
     return (
       this.state.markerData ?       
-        <MapContainer center={[40.65, -73.91]} zoom={13} scrollWheelZoom={true} id="mapid">
+        <MapContainer center={[40.65, -73.91]} zoom={10} scrollWheelZoom={true} id="mapid">
           <AttributionTile />
           {
             createMapMarkers(this.state.markerData)
