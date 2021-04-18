@@ -1,7 +1,11 @@
 require('dotenv').config()
-const axios = require('axios');
-const fs =require('fs')
+const fetch = require('node-fetch');
+const fs = require('fs');
+const searchQuery = `$where=created_date between '2021-02-24T01:00:00' and '2021-02-24T01:01:59'`;
 
+if (!globalThis.fetch) {
+	globalThis.fetch = fetch;
+}
 
 const storeData = (data, path) => {
   try {
@@ -11,22 +15,20 @@ const storeData = (data, path) => {
   }
 }
 
-const searchQuery = `$where=created_date between '2021-02-24T01:00:00' and '2021-02-24T01:01:59'`;
-const api = () => new Promise((resolve, reject) => {
-    axios({
-      method: 'get',
-      url: `https://data.cityofnewyork.us/resource/erm2-nwe9.json?${searchQuery}`,
-      data: {
-        "$limit" : 5000,
-        "$$app_token" : `${process.env.APP_TOKEN}`
-      }
-    })
-      .then(function (response) {
-        if (typeof window === 'undefined') {
-          storeData(response.data, 'text.json')
-        }
-        resolve(response.data);
-      });
-  })
+const api = async () => {
+  const response = await fetch(`https://data.cityofnewyork.us/resource/erm2-nwe9.json?${searchQuery}`, {
+    method: 'get',
+    data: {
+      "$limit" : 5000,
+      "$$app_token" : `${process.env.APP_TOKEN}`
+    }
+  });
+
+  const data = await response.json();
+  if (typeof window === 'undefined') {
+    storeData(data, 'text.json');
+  }
+  return data;
+}
 
 export default api;
