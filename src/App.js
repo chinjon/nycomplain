@@ -1,14 +1,35 @@
 import './App.css';
+import React, {Component} from 'react';
 import Map from './components/map/map'
+import api from './api/index';
 
-function App() {
-  return (
-    <div className="App">
-      <div className="map-container">
-        <Map />
+class App extends Component {
+  constructor () {
+    super()
+    this.state = {
+      data: ''
+    }
+  }
+
+  componentDidMount() {
+    api().then((data) => { 
+      this.setState({data: data}); 
+    });
+
+  }
+  render() {
+    const isAppReady = this.state.data;
+
+    return (
+      isAppReady ? 
+      <div className="App">
+        <div className="map-container">
+          <Map data={this.state.data} />
+        </div>
       </div>
-    </div>
-  );
+      : <h1>Loading...</h1>
+    ) 
+  }
 }
 
 export default App;

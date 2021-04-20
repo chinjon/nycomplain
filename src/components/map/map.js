@@ -2,7 +2,6 @@ import './map.css';
 import React, {Component} from 'react';
 import AttributionTile from './../attribution-tile/attribution-tile';
 import MapMarker from '../map-marker/map-marker';
-import api from './../../api/index.js';
 import findAverageGeo from './../../api/utils/findAverageGeo';
 import { MapContainer } from 'react-leaflet';
 
@@ -23,28 +22,23 @@ class Map extends Component {
   constructor () {
     super()
     this.state = {
-      markerData: '',
       center: ''
     }
   }
   
   componentDidMount() {
-    api().then((data) => { 
-      const centerCoordinates = findAverageGeo(getCoordinates(data))
-      this.setState({markerData: data}) 
-      this.setState({center: [parseFloat(centerCoordinates.latitude.toFixed(2)), parseFloat(centerCoordinates.longitude.toFixed(2))]})
-    });
-
+    const centerCoordinates = findAverageGeo(getCoordinates(this.props.data))
+    this.setState({center: [parseFloat(centerCoordinates.latitude.toFixed(2)), parseFloat(centerCoordinates.longitude.toFixed(2))]})
   }
 
   render() {
-    const isAppReady = this.state.markerData && this.state.center;
+    const isAppReady = this.props.data && this.state.center;
     return (
       isAppReady ?       
         <MapContainer center={this.state.center} zoom={10} scrollWheelZoom={true} id="mapid">
           <AttributionTile />
           {
-            createMapMarkers(this.state.markerData)
+            createMapMarkers(this.props.data)
           }
       </MapContainer> : 
       <h1>Loading...</h1>
