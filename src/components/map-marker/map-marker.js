@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
-import { Marker, Popup } from 'react-leaflet';
+import { Marker } from 'react-leaflet';
+import MapMarkerPopup from './../map-marker-popup/map-marker-popup';
 
 class MapMarker extends Component {
   render() {
     return (
         <Marker position={[this.props.lat, this.props.long]}>
-          <Popup>
-            {this.props.popup ? this.props.popup : null}
-          </Popup>
+          <MapMarkerPopup popup={this.props.popup} />
         </Marker>
     );
   }
