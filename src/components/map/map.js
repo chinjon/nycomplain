@@ -7,7 +7,7 @@ import { MapContainer } from 'react-leaflet';
 
 const createMapMarkers = (data) => {
   return data.map((item)=> {
-    return <MapMarker key={item.unique_key} lat={item.latitude} long={item.longitude} />
+    return <MapMarker key={item.unique_key} lat={item.latitude} long={item.longitude} popup={item.complaint_type} />
   });
 }
 
