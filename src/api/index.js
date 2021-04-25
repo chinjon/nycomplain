@@ -1,7 +1,7 @@
 require('dotenv').config()
 const fetch = require('node-fetch');
 const fs = require('fs');
-const searchQuery = `$where=created_date between '2021-02-24T01:00:00' and '2021-02-24T01:01:59'`;
+const searchQuery = `$where=created_date between '2021-04-20T16:00:00' and '2021-04-20T16:10:00'`;
 
 /**
  * @description Abstraction for writing data to JSON file
