@@ -7,7 +7,7 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      data: ''
+      data: null
     }
   }
 
@@ -17,8 +17,9 @@ class App extends Component {
     });
 
   }
+  
   render() {
-    const isAppReady = this.state.data;
+    const isAppReady = this.state.data !== null;
 
     return (
       isAppReady ? 
