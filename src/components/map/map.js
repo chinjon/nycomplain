@@ -11,13 +11,10 @@ const createMapMarkers = (data) => {
   });
 }
 
-
-
 const getCoordinates = (dataArray) => {
   const coordinates = [];
   dataArray.forEach((data) => {
     if (data.latitude && data.longitude) {
-      console.log(data)
       coordinates.push({latitude: data.latitude, longitude: data.longitude});
     }
   });
