@@ -6,12 +6,12 @@ import findAverageGeo from './../../api/utils/findAverageGeo';
 import { MapContainer } from 'react-leaflet';
 
 const createMapMarkers = (data) => {
-  return data.map((item)=> {
-    if (item.latitude && item.longitude) {
+  return data.filter(item => item.latitude && item.longitude).map((item)=> {
       return <MapMarker key={item.unique_key} lat={item.latitude} long={item.longitude} popup={item.complaint_type} />
-    }
   });
 }
+
+
 
 const getCoordinates = (dataArray) => {
   const coordinates = [];
