@@ -1,6 +1,7 @@
 require('dotenv').config()
 const fetch = require('node-fetch');
 const fs = require('fs');
+const BASE_API_URL = 'https://data.cityofnewyork.us/resource/erm2-nwe9.json?';
 const searchQuery = `$where=created_date between '2021-04-20T17:00:00' and '2021-04-20T17:45:00'`;
 
 /**
@@ -17,7 +18,7 @@ const storeData = (data, path) => {
 }
 
 const api = async () => {
-  const response = await fetch(`https://data.cityofnewyork.us/resource/erm2-nwe9.json?${searchQuery}`, {
+  const response = await fetch(`${BASE_API_URL}${searchQuery}`, {
     method: 'get',
     data: {
       "$limit" : 5000,
