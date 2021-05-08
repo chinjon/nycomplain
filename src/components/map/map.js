@@ -16,7 +16,10 @@ class Map extends Component {
   constructor () {
     super()
     this.state = {
-      center: ''
+      center: '',
+      id: {
+        map: 'map'
+      }
     }
   }
   
@@ -30,7 +33,7 @@ class Map extends Component {
     const isAppReady = this.props.data && this.state.center;
     return (
       isAppReady ?       
-        <MapContainer center={this.state.center} zoom={10} scrollWheelZoom={true} id="mapid">
+        <MapContainer center={this.state.center} zoom={10} scrollWheelZoom={true} id={this.state.id.map}>
           <AttributionTile />
           {
             createMapMarkers(this.props.data)
