@@ -1,3 +1,4 @@
+import './map-marker-popup.css'
 import React, {Component} from 'react';
 import { Popup } from 'react-leaflet';
 
@@ -5,7 +6,7 @@ class MapMarkerPopup extends Component {
   render() {
     return (
       <Popup>
-        {this.props.popup ? this.props.popup : null}
+        <p><span class="popup-label-bold">Complaint Type:</span> <span class="popup-complaint-text-italic">{this.props.complaintType ? this.props.complaintType : null}</span></p>
       </Popup>
     );
   }
