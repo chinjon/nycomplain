@@ -2,9 +2,9 @@ import './map.css';
 import React, {Component} from 'react';
 import AttributionTile from './../attribution-tile/attribution-tile';
 import MapMarker from '../map-marker/map-marker';
-import findAverageGeo from '../../api/utils/find-average-geo.js';
-import roundDecimalPlaces from '../../api/utils/round-decimal-places.js';
-import createCoordinatesFromArray from '../../api/utils/create-coordinates-from-array.js'
+import findAverageGeo from '../utils/find-average-geo.js';
+import roundDecimalPlaces from '../utils/round-decimal-places.js';
+import createCoordinatesFromArray from '../utils/create-coordinates-from-array.js'
 import { MapContainer } from 'react-leaflet';
 
 const createMapMarkers = (data) => {
