@@ -2,7 +2,8 @@ import './map.css';
 import React, {Component} from 'react';
 import AttributionTile from './../attribution-tile/attribution-tile';
 import MapMarker from '../map-marker/map-marker';
-import findAverageGeo from './../../api/utils/findAverageGeo';
+import findAverageGeo from '../../api/utils/find-average-geo.js';
+import roundDecimalPlaces from '../../api/utils/round-decimal-places.js';
 import { MapContainer } from 'react-leaflet';
 
 const createMapMarkers = (data) => {
@@ -30,7 +31,7 @@ class Map extends Component {
   
   componentDidMount() {
     const centerCoordinates = findAverageGeo(getCoordinates(this.props.data))
-    this.setState({center: [parseFloat(centerCoordinates.latitude.toFixed(2)), parseFloat(centerCoordinates.longitude.toFixed(2))]})
+    this.setState({center: [roundDecimalPlaces(centerCoordinates.latitude, 2), roundDecimalPlaces(centerCoordinates.longitude, 2)]})
   }
 
   render() {
