@@ -4,22 +4,13 @@ import AttributionTile from './../attribution-tile/attribution-tile';
 import MapMarker from '../map-marker/map-marker';
 import findAverageGeo from '../../api/utils/find-average-geo.js';
 import roundDecimalPlaces from '../../api/utils/round-decimal-places.js';
+import createCoordinatesFromArray from '../../api/utils/create-coordinates-from-array.js'
 import { MapContainer } from 'react-leaflet';
 
 const createMapMarkers = (data) => {
   return data.filter(item => item.latitude && item.longitude).map((item)=> {
       return <MapMarker key={item.unique_key} lat={item.latitude} long={item.longitude} popup={item.complaint_type} />
   });
-}
-
-const getCoordinates = (dataArray) => {
-  const coordinates = [];
-  dataArray.forEach((data) => {
-    if (data.latitude && data.longitude) {
-      coordinates.push({latitude: data.latitude, longitude: data.longitude});
-    }
-  });
-  return coordinates;
 }
 class Map extends Component {
   constructor () {
@@ -30,7 +21,8 @@ class Map extends Component {
   }
   
   componentDidMount() {
-    const centerCoordinates = findAverageGeo(getCoordinates(this.props.data))
+    const coordinatesArray = createCoordinatesFromArray(this.props.data);
+    const centerCoordinates = findAverageGeo(coordinatesArray)
     this.setState({center: [roundDecimalPlaces(centerCoordinates.latitude, 2), roundDecimalPlaces(centerCoordinates.longitude, 2)]})
   }
 
