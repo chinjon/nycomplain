@@ -6,7 +6,7 @@ class MapMarker extends Component {
   render() {
     return (
         <Marker position={[this.props.lat, this.props.long]}>
-          <MapMarkerPopup complaintType={this.props.complaintType} />
+          <MapMarkerPopup complaintType={this.props.complaintType} status={this.props.status} />
         </Marker>
     );
   }
