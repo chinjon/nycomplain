@@ -2,21 +2,12 @@ import './complaint-list.css';
 import React, {Component} from 'react';
 
 class ComplaintList extends Component {
-  constructor () {
-    super()
-    this.state = {
-    }
-  }
-  
-  componentDidMount() {
-   
-  }
-
   render() {
-    
     return (
       <div>
-        <ul></ul>
+        {
+          this.props.complaints.map((complaint) => <p>{complaint.complaint_type}</p>)
+        }
       </div>
     );
   }

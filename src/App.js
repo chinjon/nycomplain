@@ -1,6 +1,7 @@
 import './App.css';
 import React, {Component} from 'react';
 import Map from './components/map/map'
+import ComplaintList from './components/complaints-list/complaint-list.js';
 import api from './api/index';
 
 class App extends Component {
@@ -24,9 +25,14 @@ class App extends Component {
     return (
       isAppReady ? 
       <div className="App">
-        <div className="map-container">
-          <Map data={this.state.data} />
-        </div>
+        <section className="main">
+          <div className="map-container">
+            <Map data={this.state.data} />
+          </div>
+          <div className="complaint-list">
+            <ComplaintList complaints={this.state.data}></ComplaintList>
+          </div>
+        </section>
       </div>
       : <h1>Loading...</h1>
     ) 
