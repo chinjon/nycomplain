@@ -1,11 +1,12 @@
 import './complaint-list.css';
 import React, {Component} from 'react';
-import countComplaints from './../utils/count-complaints'
+import complaintCount from '../utils/complaint-count'
+import complaintListFilter from '../utils/complaint-list-filter'
 class ComplaintList extends Component {
 
   componentDidMount() {
-    console.log(countComplaints(this.props.complaints))
-
+    console.log(complaintCount(this.props.complaints))
+    console.log(complaintListFilter(this.props.complaints))
   }
 
   render() {
