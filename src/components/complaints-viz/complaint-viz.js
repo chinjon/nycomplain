@@ -1,10 +1,10 @@
-import './complaint-list.css';
+import './complaint-viz.css';
 import React, {Component} from 'react';
 import { Bar } from 'react-chartjs-2';
 import complaintCount from '../utils/complaint-count'
 import complaintListFilter from '../utils/complaint-list-filter'
 import createFormattedChartData from '../utils/create-formatted-chart-data'
-class ComplaintList extends Component {
+class ComplaintViz extends Component {
 
   constructor () {
     super()
@@ -23,7 +23,7 @@ class ComplaintList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="complaint-viz">
         {/* {
           this.props.complaints.map((complaint) => <p key={complaint.unique_key}>{complaint.complaint_type}</p>)
         } */}
@@ -33,4 +33,4 @@ class ComplaintList extends Component {
   }
 }
 
-export default ComplaintList;
+export default ComplaintViz;

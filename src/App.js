@@ -1,7 +1,7 @@
 import './App.css';
 import React, {Component} from 'react';
 import Map from './components/map/map'
-import ComplaintList from './components/complaints-list/complaint-list.js';
+import ComplaintViz from './components/complaints-viz/complaint-viz.js';
 import api from './api/index';
 
 class App extends Component {
@@ -30,7 +30,7 @@ class App extends Component {
             <Map data={this.state.data} />
           </div>
           <div className="complaint-list">
-            <ComplaintList complaints={this.state.data}></ComplaintList>
+            <ComplaintViz complaints={this.state.data}></ComplaintViz>
           </div>
         </section>
       </div>
