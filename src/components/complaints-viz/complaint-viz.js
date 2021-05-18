@@ -2,8 +2,8 @@ import './complaint-viz.css';
 import React, {Component} from 'react';
 import { Bar } from 'react-chartjs-2';
 import complaintCount from '../utils/complaint-count'
-import complaintListFilter from '../utils/complaint-list-filter'
 import createFormattedChartData from '../utils/create-formatted-chart-data'
+import generateVizColors from './utils/generate-viz-colors';
 class ComplaintViz extends Component {
 
   constructor () {
@@ -13,12 +13,10 @@ class ComplaintViz extends Component {
   }
 
   componentDidMount() {
-    console.log(complaintCount(this.props.complaints))
-    console.log(complaintListFilter(this.props.complaints))
     const complaintCountObj = complaintCount(this.props.complaints);
     const formattedData = createFormattedChartData(complaintCountObj);
-    console.log(createFormattedChartData(complaintCountObj))
-    this.setState({chartData: {labels: formattedData.labels, datasets: [{data: formattedData.data}]} })
+    const colors = generateVizColors(formattedData.data);
+    this.setState({chartData: {labels: formattedData.labels, datasets: [{label: '# of Complaints', data: formattedData.data, backgroundColor: colors}]} })
   }
 
   render() {
