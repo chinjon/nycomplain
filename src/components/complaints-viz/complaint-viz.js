@@ -1,7 +1,7 @@
 import './complaint-viz.css';
 import React, {Component} from 'react';
 import { Bar } from 'react-chartjs-2';
-import complaintCount from '../utils/complaint-count'
+import countPropsByKey from '../utils/count-props-by-key'
 import createFormattedChartData from '../utils/create-formatted-chart-data'
 import generateVizColors from './utils/generate-viz-colors';
 class ComplaintViz extends Component {
@@ -13,19 +13,22 @@ class ComplaintViz extends Component {
   }
 
   componentDidMount() {
-    const complaintCountObj = complaintCount(this.props.complaints);
-    const formattedData = createFormattedChartData(complaintCountObj);
-    const colors = generateVizColors(formattedData.data);
-    this.setState({chartData: {labels: formattedData.labels, datasets: [{label: '# of Complaints', data: formattedData.data, backgroundColor: colors}]} })
+    const complaintCountObj = countPropsByKey(this.props.complaints, 'complaint_type');
+    const complaintFormattedData = createFormattedChartData(complaintCountObj);
+    const complaintColors = generateVizColors(complaintFormattedData.data);
+    this.setState({complaintData: {labels: complaintFormattedData.labels, datasets: [{label: '# of Complaints', data: complaintFormattedData.data, backgroundColor: complaintColors}]} })
+
+    const boroughCountObj = countPropsByKey(this.props.complaints, 'borough');
+    const boroughFormattedData = createFormattedChartData(boroughCountObj);
+    const boroughColors = generateVizColors(boroughFormattedData.data);
+    this.setState({boroughData: {labels: boroughFormattedData.labels, datasets: [{label: 'by Borough', data: boroughFormattedData.data, backgroundColor: boroughColors}]}})
   }
 
   render() {
     return (
       <div className="complaint-viz">
-        {/* {
-          this.props.complaints.map((complaint) => <p key={complaint.unique_key}>{complaint.complaint_type}</p>)
-        } */}
-        <Bar data={this.state.chartData}></Bar>
+        <Bar data={this.state.complaintData}></Bar>
+        <Bar data={this.state.boroughData}></Bar>
       </div>
     );
   }
