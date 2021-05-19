@@ -1,6 +1,6 @@
 import './complaint-viz.css';
 import React, {Component} from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Bar, PolarArea } from 'react-chartjs-2';
 import countPropsByKey from '../utils/count-props-by-key'
 import createFormattedChartData from '../utils/create-formatted-chart-data'
 import generateVizColors from './utils/generate-viz-colors';
@@ -28,7 +28,7 @@ class ComplaintViz extends Component {
     return (
       <div className="complaint-viz">
         <Bar data={this.state.complaintData}></Bar>
-        <Bar data={this.state.boroughData}></Bar>
+        <PolarArea data={this.state.boroughData}></PolarArea>
       </div>
     );
   }
