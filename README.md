@@ -1,5 +1,7 @@
 # nycomplain
 
+![](./nycomplain-prototype-1.png)
+
 An app that will display and 311 reports
 
 A **very much work-in-progress** to display queries placed to 311. This application is not to be used for any sort of policing or to present any bias statements.
