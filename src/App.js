@@ -3,11 +3,7 @@ import React, {Component} from 'react';
 import Map from './components/map/map'
 import ComplaintViz from './components/complaints-viz/complaint-viz.js';
 import api from './api/index';
-
-const BASE_API_URL = 'https://data.cityofnewyork.us/resource/erm2-nwe9.json?';
-const WHERE_CREATED_DATE = `$where=created_date`
-const BETWEEN = `between`
-const searchQuery = `${WHERE_CREATED_DATE} ${BETWEEN} '2021-04-20T17:00:00' and '2021-04-20T17:45:00'`;
+import createSearchQuery from './components/utils/create-search-query.js'
 
 class App extends Component {
   constructor () {
@@ -18,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    api(`${BASE_API_URL}${searchQuery}`).then((data) => { 
+    api(createSearchQuery('2021-04-20T17:00:00', '2021-04-20T17:45:00')).then((data) => { 
       this.setState({data: data}); 
     });
 
