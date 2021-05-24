@@ -5,8 +5,8 @@ class DateDropDown extends Component {
     return(
     <select name="date" id="date">
       {
-        (this.props.dates).map((date) => {
-          return <option value={date}>{date}</option>
+        (this.props.dates).map((date, index) => {
+          return <option key={index} value={date}>{date}</option>
         })
       }
     </select>
