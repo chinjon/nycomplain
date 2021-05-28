@@ -16,6 +16,7 @@ class PickDate extends Component {
     return(
       <div>
       <DatePicker
+        clearIcon={null}
         onChange={this.onChange}
         value={this.state.value}
       />
