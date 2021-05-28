@@ -1,6 +1,5 @@
 import './App.css';
 import React, {Component} from 'react';
-import {parse} from 'date-fns';
 import Map from './components/map/map'
 import Search from './components/search/search'
 import ComplaintViz from './components/complaints-viz/complaint-viz.js';
