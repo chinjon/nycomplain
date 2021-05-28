@@ -1,5 +1,6 @@
 import './App.css';
 import React, {Component} from 'react';
+import {parse} from 'date-fns';
 import Map from './components/map/map'
 import Search from './components/search/search'
 import ComplaintViz from './components/complaints-viz/complaint-viz.js';
@@ -11,18 +12,23 @@ class App extends Component {
     super()
     this.state = {
       data: null,
-      date: new Date()
+      date: '2021-04-20'
     }
   }
 
   componentDidMount() {
-    api(createSearchQuery('2021-04-20', '17:00:00', '17:45:00')).then((data) => { 
+    this.callApi()
+  }
+
+  callApi = () => {
+    api(createSearchQuery(this.state.date, '17:00:00', '17:45:00')).then((data) => { 
       this.setState({data: data}); 
     });
   }
   
   getDate = (date) => {
-    this.setState({date})
+    this.setState({date: `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`})
+    this.callApi();
   }  
   render() {
     const isAppReady = this.state.data !== null;

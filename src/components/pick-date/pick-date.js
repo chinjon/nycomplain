@@ -9,6 +9,7 @@ class PickDate extends Component {
 
   onChange = (event) => {
     this.props.getDate(event)
+    this.setState({value: event})
   }
 
   render() {
