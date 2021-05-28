@@ -11,7 +11,7 @@ class App extends Component {
     super()
     this.state = {
       data: null,
-      date: '2021-04-20'
+      date: '2021-05-20'
     }
   }
 
@@ -42,7 +42,7 @@ class App extends Component {
           <div className="map-container">
             <Map data={this.state.data} />
           </div>
-          <div className="complaint-list">
+          <div className="complaint-viz">
             <ComplaintViz complaints={this.state.data}></ComplaintViz>
           </div>
         </section>
