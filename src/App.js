@@ -1,6 +1,7 @@
 import './App.css';
 import React, {Component} from 'react';
 import Map from './components/map/map'
+import Search from './components/search/search'
 import ComplaintViz from './components/complaints-viz/complaint-viz.js';
 import api from './api/index';
 import createSearchQuery from './components/utils/create-search-query.js'
@@ -27,6 +28,9 @@ class App extends Component {
       isAppReady ? 
       <div className="App">
         <section className="main">
+          <div className="search-container">
+            <Search></Search>
+          </div>
           <div className="map-container">
             <Map data={this.state.data} />
           </div>
