@@ -16,18 +16,18 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.callApi()
+    this.callApi(this.state.date);
   }
 
-  callApi = () => {
-    api(createSearchQuery(this.state.date, '17:00:00', '17:45:00')).then((data) => { 
+  callApi = (date) => {
+    api(createSearchQuery(date, '17:00:00', '17:45:00')).then((data) => { 
       this.setState({data: data}); 
     });
   }
   
   getDate = (date) => {
     this.setState({date: `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`})
-    this.callApi();
+    this.callApi(this.state.date);
   }  
   render() {
     const isAppReady = this.state.data !== null;
