@@ -10,7 +10,8 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      data: null
+      data: null,
+      date: new Date()
     }
   }
 
@@ -18,9 +19,11 @@ class App extends Component {
     api(createSearchQuery('2021-04-20', '17:00:00', '17:45:00')).then((data) => { 
       this.setState({data: data}); 
     });
-
   }
   
+  getDate = (date) => {
+    this.setState({date})
+  }  
   render() {
     const isAppReady = this.state.data !== null;
 
@@ -29,7 +32,7 @@ class App extends Component {
       <div className="App">
         <section className="main">
           <div className="search-container">
-            <Search></Search>
+            <Search getDate={this.getDate}></Search>
           </div>
           <div className="map-container">
             <Map data={this.state.data} />

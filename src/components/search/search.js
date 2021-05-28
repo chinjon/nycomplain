@@ -4,7 +4,7 @@ import PickDate from '../pick-date/pick-date.js'
 class Search extends Component {
   render() {
     return(
-      <PickDate></PickDate>
+      <PickDate getDate={this.props.getDate}></PickDate>
     )
   }
 }

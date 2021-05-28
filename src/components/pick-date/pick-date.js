@@ -1,16 +1,26 @@
-import React, {  useState } from 'react';
+import React, { Component } from 'react';
 import DatePicker from 'react-date-picker';
 
-function PickDate() {
-  const [value, onChange] = useState(new Date());
+class PickDate extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {value: new Date()}
+  }
+
+  onChange = (event) => {
+    this.props.getDate(event)
+  }
+
+  render() {
     return(
       <div>
       <DatePicker
-        onChange={onChange}
-        value={value}
+        onChange={this.onChange}
+        value={this.state.value}
       />
     </div>
     )
+  }
 }
 
 export default PickDate;
