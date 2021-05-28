@@ -3,8 +3,8 @@ const WHERE_CREATED_DATE = `$where=created_date`;
 const BETWEEN = `between`;
 const AND = `and`;
 
-const createSearchQuery = (startDate, endDate) => {
-  return `${BASE_API_URL}${WHERE_CREATED_DATE} ${BETWEEN} '${startDate}' ${AND} '${endDate}'`;
+const createSearchQuery = (date, startTime, endTime) => {
+  return `${BASE_API_URL}${WHERE_CREATED_DATE} ${BETWEEN} '${date}T${startTime}' ${AND} '${date}T${endTime}'`;
 }
 
 export default createSearchQuery;

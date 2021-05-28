@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    api(createSearchQuery('2021-04-20T17:00:00', '2021-04-20T17:45:00')).then((data) => { 
+    api(createSearchQuery('2021-04-20', '17:00:00', '17:45:00')).then((data) => { 
       this.setState({data: data}); 
     });
 
