@@ -8,6 +8,7 @@ class MapMarkerPopup extends Component {
       <Popup>
         {createMarkerPopupLabel('Complaint Type:', this.props.complaintType)}
         {createMarkerPopupLabel('Status:', this.props.status)}
+        {createMarkerPopupLabel('ZIP:', this.props.zip)}
       </Popup>
     );
   }

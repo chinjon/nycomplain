@@ -9,7 +9,7 @@ import { MapContainer } from 'react-leaflet';
 
 const createMapMarkers = (data) => {
   return data.filter(item => item.latitude && item.longitude).map((item)=> {
-      return <MapMarker key={item.unique_key} lat={item.latitude} long={item.longitude} complaintType={item.complaint_type} status={item.status} />
+      return <MapMarker key={item.unique_key} lat={item.latitude} long={item.longitude} complaintType={item.complaint_type} status={item.status} zip={item.incident_zip} />
   });
 }
 class Map extends Component {
