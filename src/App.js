@@ -47,7 +47,7 @@ class App extends Component {
   }
   
   getDate = (date) => {
-    this.setState({date: `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`})
+    this.setState({date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`})
     this.callApi(this.state.date);
   }  
   render() {
@@ -59,6 +59,7 @@ class App extends Component {
         <section className="main">
           <div className="search-container">
             <Search getDate={this.getDate}></Search>
+            <div className="date">Showing data for: {this.state.date}</div>
           </div>
           <div className="map-container">
             <Map data={this.state.data} />
