@@ -58,7 +58,7 @@ class App extends Component {
       <div className="App">
         <section className="main">
           <div className="search-container">
-            <Search date={this.date}></Search>
+            <Search date={this.getDate}></Search>
             <div className="date">Showing data for: {this.state.date}</div>
           </div>
           <div className="map-container">
