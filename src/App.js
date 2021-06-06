@@ -1,5 +1,6 @@
 import './App.css';
 import React, {Component} from 'react';
+import {format} from 'date-fns';
 import Map from './components/map/map'
 import Search from './components/search/search'
 import ComplaintViz from './components/complaints-viz/complaint-viz.js';
@@ -13,7 +14,8 @@ class App extends Component {
     super()
     this.state = {
       data: null,
-      date: '2021-05-20',
+      date: '',
+      formattedDate: '',
       complaintData: null,
       statusData: null,
       boroughData: null,
@@ -21,7 +23,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.callApi(this.state.date);
+    const createDate = this.getDateFromDateAgo(3);
+    const formattedDate = this.formatDateForQuery(createDate)
+    this.setState({date: createDate, formattedDate: formattedDate})
+    this.callApi(formattedDate);
   }
   
   callApi = (date) => {
@@ -33,6 +38,15 @@ class App extends Component {
         boroughData: this.createVisualData(this.state.data, 'borough')
       })
     });
+  }
+
+  getDateFromDateAgo = (daysAgo) => {
+    let d = new Date();
+    return d.setDate(d.getDate() - daysAgo);
+  }
+
+  formatDateForQuery = (dateObj) => {
+    return format(dateObj, 'yyyy-MM-dd')
   }
 
   createVisualData = (data, keyFilter) => {
@@ -47,8 +61,7 @@ class App extends Component {
   }
   
   getDate = (date) => {
-    this.setState({date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`})
-    this.callApi(this.state.date);
+    this.callApi(this.formatDateForQuery(date));
   }  
   render() {
     const isAppReady = this.state.data !== null && this.state.complaintData !== null && this.state.statusData !== null && this.state.boroughData !== null;
@@ -58,8 +71,8 @@ class App extends Component {
       <div className="App">
         <section className="main">
           <div className="search-container">
-            <Search date={this.getDate}></Search>
-            <div className="date">Showing data for: {this.state.date}</div>
+            <Search getDate={this.getDate} date={this.state.date}></Search>
+            <div className="date">Showing data for: {this.state.formattedDate}</div>
           </div>
           <div className="map-container">
             <Map data={this.state.data} />
