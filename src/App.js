@@ -7,6 +7,7 @@ import ComplaintViz from './components/complaints-viz/complaint-viz.js';
 import api from './api/index';
 import createSearchQuery from './components/utils/create-search-query.js'
 import countPropsByKey from './components/utils/count-props-by-key'
+import getDateFromDateAgo from './components/utils/getDateFromDateAgo'
 import createFormattedChartData from './components/utils/create-formatted-chart-data'
 import generateVizColors from './components/complaints-viz/utils/generate-viz-colors'
 class App extends Component {
@@ -23,7 +24,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const createDate = this.getDateFromDateAgo(3);
+    const createDate = getDateFromDateAgo(2);
     const formattedDate = this.formatDateForQuery(createDate)
     this.setState({date: createDate, formattedDate: formattedDate})
     this.callApi(formattedDate);
@@ -40,10 +41,6 @@ class App extends Component {
     });
   }
 
-  getDateFromDateAgo = (daysAgo) => {
-    let d = new Date();
-    return d.setDate(d.getDate() - daysAgo);
-  }
 
   formatDateForQuery = (dateObj) => {
     return format(dateObj, 'yyyy-MM-dd')
