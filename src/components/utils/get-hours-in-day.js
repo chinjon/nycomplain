@@ -9,7 +9,7 @@ const getHoursInDay = () => {
   const datesFormatted = [];
 
   datesObj.forEach((date) => {
-    datesFormatted.push(format(date, 'hh:mm:ss'))
+    datesFormatted.push(format(date, 'H:mm:ss'))
   })
 
   return datesFormatted;
