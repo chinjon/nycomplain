@@ -33,7 +33,7 @@ class Map extends Component {
     const isAppReady = this.props.data && this.state.center;
     return (
       isAppReady ?       
-        <MapContainer className="map-container" center={this.state.center} zoom={10} scrollWheelZoom={true} id={this.state.id.map}>
+        <MapContainer className="map-container" center={this.state.center} zoom={10.5} scrollWheelZoom={true} id={this.state.id.map}>
           <AttributionTile />
           {
             createMapMarkers(this.props.data)
