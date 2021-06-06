@@ -1,6 +1,6 @@
 import './complaint-viz.css';
 import React, {Component} from 'react';
-import { Bar, PolarArea } from 'react-chartjs-2';
+import { Bar, Doughnut } from 'react-chartjs-2';
 
 class ComplaintViz extends Component {
   setVizDataObj = (data, legendText) => {
@@ -19,7 +19,7 @@ class ComplaintViz extends Component {
       <div className="complaint-viz">
         <Bar data={this.setVizDataObj(this.props.complaintData, '# of complaints')}></Bar>
         <Bar data={this.setVizDataObj(this.props.statusData, 'by status')}></Bar>
-        <PolarArea data={this.setVizDataObj(this.props.boroughData, 'by borough')}></PolarArea>
+        <Doughnut data={this.setVizDataObj(this.props.boroughData, 'by borough')}></Doughnut>
       </div>
     );
   }
