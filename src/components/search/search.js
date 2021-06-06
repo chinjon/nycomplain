@@ -8,20 +8,21 @@ class Search extends Component {
     super()
 
     this.state = {
-      startTime: null
+      startTime: null,
+      endTime: null
     }
   }
 
   componentDidMount() {
-    console.log(getHoursInDay())
-    this.setState({startTime: getHoursInDay()})
+    this.setState({startTime: getHoursInDay(), endTime: getHoursInDay()})
   }
   render() {
     return(
-      this.state.startTime ? 
+      this.state.startTime && this.state.endTime ? 
       <div>
         <PickDate date={this.props.date} getDate={this.props.getDate}></PickDate>
-        <Select selectOptions={this.state.startTime} name="start-date" selectId="start-date" />
+        <Select selectOptions={this.state.startTime} name="start-time" selectId="start-time" />
+        <Select selectOptions={this.state.endTime} name="end-time" selectId="end-time" />
       </div> : null
     )
   }
