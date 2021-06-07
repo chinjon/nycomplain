@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import './assets/fonts/Swansea/Swansea.ttf'
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

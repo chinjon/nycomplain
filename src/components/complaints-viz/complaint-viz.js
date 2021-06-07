@@ -1,7 +1,8 @@
 import './complaint-viz.css';
 import React, {Component} from 'react';
-import { Bar, Doughnut } from 'react-chartjs-2';
+import { Bar, Doughnut, defaults } from 'react-chartjs-2';
 
+defaults.font.family = 'Swansea';
 class ComplaintViz extends Component {
   setVizDataObj = (data, legendText) => {
     return {

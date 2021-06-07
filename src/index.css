@@ -1,6 +1,13 @@
+@font-face {
+  font-family: "Swansea";
+  src: local("Swansea"),
+   url("./assets/fonts/Swansea/Swansea.ttf") format("truetype");
+  font-weight: regular;
+  }
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, 'Swansea', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
