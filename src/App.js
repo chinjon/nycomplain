@@ -20,6 +20,8 @@ class App extends Component {
       complaintData: null,
       statusData: null,
       boroughData: null,
+      startTime: '00:00:00',
+      endTime: '01:00:00'
     }
   }
 
@@ -27,11 +29,11 @@ class App extends Component {
     const createDate = getDateFromDateAgo(2);
     const formattedDate = this.formatDateForQuery(createDate)
     this.setState({date: createDate, formattedDate: formattedDate})
-    this.callApi(formattedDate);
+    this.callApi(formattedDate, this.state.startTime, this.state.endTime);
   }
   
-  callApi = (date) => {
-    api(createSearchQuery(date, '17:00:00', '17:45:00')).then((data) => { 
+  callApi = (date, startTime, endTime) => {
+    api(createSearchQuery(date, startTime, endTime)).then((data) => { 
       this.setState({data: data}); 
       this.setState({
         complaintData: this.createVisualData(this.state.data, 'complaint_type'),
@@ -56,9 +58,19 @@ class App extends Component {
       colors
     }
   }
+
+  handleOnChange = (event) => {
+    console.log(event.target.value)
+    console.log(event.target.id)
+    if(event.target.id === 'start-time') {
+      this.setState({startTime: event.target.value})
+    } else if (event.target.id === 'end-time') {
+      this.setState({endTime: event.target.value})
+    }
+  }
   
   getDate = (date) => {
-    this.callApi(this.formatDateForQuery(date));
+    this.callApi(this.formatDateForQuery(date), this.state.startTime, this.state.endTime);
   }  
   render() {
     const isAppReady = this.state.data !== null && this.state.complaintData !== null && this.state.statusData !== null && this.state.boroughData !== null;
@@ -68,13 +80,13 @@ class App extends Component {
       <div className="App">
         <section className="main">
           <div className="search-container">
-            <Search getDate={this.getDate} date={this.state.date}></Search>
+            <Search getDate={this.getDate} date={this.state.date} value={this.props.startTime} handleOnChange={this.handleOnChange}></Search>
             <div className="date">Showing data for: {this.state.formattedDate}</div>
           </div>
           <div className="map-container">
             <Map data={this.state.data} />
           </div>
-          <div className="complaint-viz">
+          <div className="complaint-viz-container">
             <ComplaintViz statusData={this.state.statusData} boroughData={this.state.boroughData} complaintData={this.state.complaintData}></ComplaintViz>
           </div>
         </section>
