@@ -60,12 +60,12 @@ class App extends Component {
   }
 
   handleOnChange = (event) => {
-    console.log(event.target.value)
-    console.log(event.target.id)
     if(event.target.id === 'start-time') {
       this.setState({startTime: event.target.value})
+      this.callApi(this.state.formattedDate, this.state.startTime, this.state.endTime)
     } else if (event.target.id === 'end-time') {
       this.setState({endTime: event.target.value})
+      this.callApi(this.state.formattedDate, this.state.startTime, this.state.endTime)
     }
   }
   
@@ -78,18 +78,18 @@ class App extends Component {
     return (
       isAppReady ? 
       <div className="App">
-        <section className="main">
-          <div className="search-container">
-            <Search getDate={this.getDate} date={this.state.date} value={this.props.startTime} handleOnChange={this.handleOnChange}></Search>
+        <div className="main">
+          <section className="search-container">
+            <Search getDate={this.getDate} date={this.state.date} value={this.props.startTime} handleOnChange={this.handleOnChange} startTime={this.startTime}></Search>
             <div className="date">Showing data for: {this.state.formattedDate}</div>
-          </div>
+          </section>
           <div className="map-container">
             <Map data={this.state.data} />
           </div>
           <div className="complaint-viz-container">
             <ComplaintViz statusData={this.state.statusData} boroughData={this.state.boroughData} complaintData={this.state.complaintData}></ComplaintViz>
           </div>
-        </section>
+        </div>
       </div>
       : <h1>Loading...</h1>
     ) 

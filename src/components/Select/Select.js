@@ -16,6 +16,7 @@ class Select extends Component {
   }
 
   handleOnChange = (event) =>  {
+    this.props.handleOnChange(event);
     this.setState({value: event.target.value})
   }
  

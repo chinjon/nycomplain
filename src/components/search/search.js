@@ -21,8 +21,8 @@ class Search extends Component {
       this.state.startTime && this.state.endTime ? 
       <div>
         <PickDate date={this.props.date} getDate={this.props.getDate}></PickDate>
-        <Select selectOptions={this.state.startTime} name="start-time" selectId="start-time" handleOnChange={this.props.handleOnChange} />
-        <Select selectOptions={this.state.endTime} name="end-time" selectId="end-time" handleOnChange={this.props.handleOnChange}/>
+        <Select selectOptions={this.state.startTime} value={this.props.startTime} name="start-time" selectId="start-time" handleOnChange={this.props.handleOnChange} />
+        <Select selectOptions={this.state.endTime} value={this.props.endTime} name="end-time" selectId="end-time" handleOnChange={this.props.handleOnChange}/>
       </div> : null
     )
   }
