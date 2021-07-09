@@ -83,12 +83,14 @@ class App extends Component {
             <Search getDate={this.getDate} date={this.state.date} value={this.props.startTime} handleOnChange={this.handleOnChange} startTime={this.startTime}></Search>
             <div className="date">Showing data for: {this.state.formattedDate}</div>
           </section>
+          <section className="content">
           <div className="map-container">
             <Map data={this.state.data} />
           </div>
           <div className="complaint-viz-container">
             <ComplaintViz statusData={this.state.statusData} boroughData={this.state.boroughData} complaintData={this.state.complaintData}></ComplaintViz>
           </div>
+          </section>
         </div>
       </div>
       : <h1>Loading...</h1>

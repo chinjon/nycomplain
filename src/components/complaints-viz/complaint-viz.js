@@ -18,9 +18,15 @@ class ComplaintViz extends Component {
   render() {
     return (
       <div className="complaint-viz">
-        <Bar data={this.setVizDataObj(this.props.complaintData, '# of complaints')}></Bar>
-        <Bar data={this.setVizDataObj(this.props.statusData, 'by status')}></Bar>
-        <Doughnut data={this.setVizDataObj(this.props.boroughData, 'by borough')}></Doughnut>
+        <div>
+          <Bar className="complaint-viz-item complaint-types" data={this.setVizDataObj(this.props.complaintData, '# of complaints')}></Bar>
+        </div>
+        <div>
+          <Bar className="complaint-viz-item" data={this.setVizDataObj(this.props.statusData, 'by status')}></Bar>
+        </div>
+        <div>
+        <Doughnut className="complaint-viz-item" data={this.setVizDataObj(this.props.boroughData, 'by borough')}></Doughnut>
+        </div>
       </div>
     );
   }
