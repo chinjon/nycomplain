@@ -1,6 +1,6 @@
 import './Map.css';
 import React, {Component} from 'react';
-import AttributionTile from '../attribution-tile/attribution-tile';
+import AttributionTile from './AttributionTile/AttributionTile';
 import MapMarker from './MapMaker/MapMarker';
 import findAverageGeo from '../utils/find-average-geo.js';
 import roundDecimalPlaces from '../utils/round-decimal-places.js';

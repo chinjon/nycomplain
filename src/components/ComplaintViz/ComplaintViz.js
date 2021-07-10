@@ -1,4 +1,4 @@
-import './complaint-viz.css';
+import './ComplaintViz.css';
 import React, {Component} from 'react';
 import { Bar, Doughnut, defaults } from 'react-chartjs-2';
 

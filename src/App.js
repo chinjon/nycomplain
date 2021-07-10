@@ -3,13 +3,13 @@ import React, {Component} from 'react';
 import {format} from 'date-fns';
 import Map from './components/Map/Map'
 import Search from './components/Search/Search'
-import ComplaintViz from './components/complaints-viz/complaint-viz.js';
+import ComplaintViz from './components/ComplaintViz/ComplaintViz.js';
 import api from './api/index';
 import createSearchQuery from './components/utils/create-search-query.js'
 import countPropsByKey from './components/utils/count-props-by-key'
 import getDateFromDateAgo from './components/utils/getDateFromDateAgo'
 import createFormattedChartData from './components/utils/create-formatted-chart-data'
-import generateVizColors from './components/complaints-viz/utils/generate-viz-colors'
+import generateVizColors from './components/ComplaintViz/utils/generate-viz-colors'
 class App extends Component {
   constructor () {
     super()
