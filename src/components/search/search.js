@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PickDate from '../pick-date/pick-date.js'
-import Select from '../Select/Select';
+import PickDate from './PickDate/PickDate.js'
+import Select from './Select/Select';
 import getHoursInDay from '../utils/get-hours-in-day';
 
 class Search extends Component {

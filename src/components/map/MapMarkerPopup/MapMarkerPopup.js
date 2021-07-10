@@ -1,4 +1,4 @@
-import './map-marker-popup.css'
+import './MapMarkerPopup.css'
 import React, {Component} from 'react';
 import { Popup } from 'react-leaflet';
 import createMarkerPopupLabel from './utils/create-marker-popup-label.js';

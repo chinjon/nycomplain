@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Marker } from 'react-leaflet';
-import MapMarkerPopup from './../map-marker-popup/map-marker-popup';
+import MapMarkerPopup from '../MapMarkerPopup/MapMarkerPopup';
 
 class MapMarker extends Component {
   render() {

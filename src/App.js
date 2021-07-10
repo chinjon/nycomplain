@@ -1,8 +1,8 @@
 import './App.css';
 import React, {Component} from 'react';
 import {format} from 'date-fns';
-import Map from './components/map/map'
-import Search from './components/search/search'
+import Map from './components/Map/Map'
+import Search from './components/Search/Search'
 import ComplaintViz from './components/complaints-viz/complaint-viz.js';
 import api from './api/index';
 import createSearchQuery from './components/utils/create-search-query.js'

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-date-picker';
-import getDateFromDateAgo from './../utils/getDateFromDateAgo'
+import getDateFromDateAgo from '../../utils/getDateFromDateAgo'
 
 class PickDate extends Component {
   constructor(props) {
