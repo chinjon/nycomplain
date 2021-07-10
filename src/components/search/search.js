@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Search.css'
 import PickDate from './PickDate/PickDate.js'
 import Select from './Select/Select';
 import getHoursInDay from '../utils/get-hours-in-day';
@@ -19,7 +20,7 @@ class Search extends Component {
   render() {
     return(
       this.state.startTime && this.state.endTime ? 
-      <div>
+      <div className="search">
         <PickDate date={this.props.date} getDate={this.props.getDate}></PickDate>
         <Select selectOptions={this.state.startTime} value={this.props.startTime} name="start-time" selectId="start-time" handleOnChange={this.props.handleOnChange} />
         <Select selectOptions={this.state.endTime} value={this.props.endTime} name="end-time" selectId="end-time" handleOnChange={this.props.handleOnChange}/>
