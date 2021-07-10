@@ -14,7 +14,7 @@ class Search extends Component {
   }
 
   componentDidMount() {
-    this.setState({startTime: getHoursInDay(), endTime: getHoursInDay()})
+    this.setState({startTime: getHoursInDay().slice(0, getHoursInDay().length - 1), endTime: getHoursInDay().slice(1)})
   }
   render() {
     return(
