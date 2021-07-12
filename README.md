@@ -1,6 +1,6 @@
-# NYC Complain
+# ☎ NYC Complain ☎
 
-An app to visualize 311 reports via the [311 API via Open NYC](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9) ☎ 📞.
+An app to visualize 311 reports via the [311 API via Open NYC](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9).
 
 A **very much work-in-progress** to display queries placed to 311. This application is not to be used for any sort of policing or to present any bias statements.
 This application leverages public data and merely presents them.
