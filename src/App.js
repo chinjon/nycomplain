@@ -1,7 +1,7 @@
 import './App.css';
 import React, {Component} from 'react';
 import {format} from 'date-fns';
-import Map from './components/Map/Map'
+import Map from './components/Map/Map.js'
 import Search from './components/Search/Search'
 import ComplaintViz from './components/ComplaintViz/ComplaintViz.js';
 import api from './api/index';
