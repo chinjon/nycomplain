@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './Search.css'
+import './SearchBar.css'
 import PickDate from './PickDate/PickDate.js'
 import Select from './Select/Select';
 import getHoursInDay from '../utils/get-hours-in-day';
 
-class Search extends Component {
+class SearchBar extends Component {
   constructor() {
     super()
 
@@ -29,4 +29,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default SearchBar;

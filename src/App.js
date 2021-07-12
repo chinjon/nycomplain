@@ -2,7 +2,7 @@ import './App.css';
 import React, {Component} from 'react';
 import {format} from 'date-fns';
 import ComplaintMap from './components/ComplaintMap/ComplaintMap.js'
-import Search from './components/Search/Search'
+import SearchBar from './components/SearchBar/SearchBar'
 import ComplaintViz from './components/ComplaintViz/ComplaintViz.js';
 import api from './api/index';
 import createSearchQuery from './components/utils/create-search-query.js'
@@ -80,7 +80,7 @@ class App extends Component {
       <div className="App">
         <div className="main">
           <section className="search-container">
-            <Search getDate={this.getDate} date={this.state.date} value={this.props.startTime} handleOnChange={this.handleOnChange} startTime={this.startTime}></Search>
+            <SearchBar getDate={this.getDate} date={this.state.date} value={this.props.startTime} handleOnChange={this.handleOnChange} startTime={this.startTime} />
             <div className="date">Showing data for: {this.state.formattedDate}</div>
           </section>
           <section className="content">
