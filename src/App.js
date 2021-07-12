@@ -1,7 +1,7 @@
 import './App.css';
 import React, {Component} from 'react';
 import {format} from 'date-fns';
-import Map from './components/Map/Map.js'
+import ComplaintMap from './components/ComplaintMap/ComplaintMap.js'
 import Search from './components/Search/Search'
 import ComplaintViz from './components/ComplaintViz/ComplaintViz.js';
 import api from './api/index';
@@ -85,7 +85,7 @@ class App extends Component {
           </section>
           <section className="content">
           <div className="map-container">
-            <Map data={this.state.data} />
+            <ComplaintMap data={this.state.data} />
           </div>
           <div className="complaint-viz-container">
             <ComplaintViz statusData={this.state.statusData} boroughData={this.state.boroughData} complaintData={this.state.complaintData}></ComplaintViz>

@@ -1,4 +1,4 @@
-import './Map.css';
+import './ComplaintMap.css';
 import React, {Component} from 'react';
 import AttributionTile from './AttributionTile/AttributionTile';
 import MapMarker from './MapMaker/MapMarker';
@@ -12,7 +12,7 @@ const createMapMarkers = (data) => {
       return <MapMarker key={item.unique_key} lat={item.latitude} long={item.longitude} complaintType={item.complaint_type} status={item.status} zip={item.incident_zip} />
   });
 }
-class Map extends Component {
+class ComplaintMap extends Component {
   constructor () {
     super()
     this.state = {
@@ -44,4 +44,4 @@ class Map extends Component {
   }
 }
 
-export default Map;
+export default ComplaintMap;
