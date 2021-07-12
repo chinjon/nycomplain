@@ -39,7 +39,7 @@ class Map extends Component {
             createMapMarkers(this.props.data)
           }
       </MapContainer> : 
-      <h1>Loading...</h1>
+      <h1>Loading....</h1>
     );
   }
 }
