@@ -10,6 +10,7 @@ import countPropsByKey from './components/utils/count-props-by-key'
 import getDateFromDateAgo from './components/utils/getDateFromDateAgo'
 import createFormattedChartData from './components/utils/create-formatted-chart-data'
 import generateVizColors from './components/ComplaintViz/utils/generate-viz-colors'
+
 class App extends Component {
   constructor () {
     super()
@@ -78,19 +79,19 @@ class App extends Component {
     return (
       isAppReady ? 
       <div className="App">
-        <div className="main">
-          <section className="search-container">
+        <div className="main columns">
+          <section className="search-container column is-full">
             <SearchBar getDate={this.getDate} date={this.state.date} value={this.props.startTime} handleOnChange={this.handleOnChange} startTime={this.startTime} />
             <div className="date">Showing data for: {this.state.formattedDate}</div>
           </section>
-          <section className="content">
-          <div className="map-container">
+          {/* <section className="content columns"> */}
+          <div className="map-container column is-full">
             <ComplaintMap data={this.state.data} />
           </div>
-          <div className="complaint-viz-container">
+          <div className="complaint-viz-container columns is-full">
             <ComplaintViz statusData={this.state.statusData} boroughData={this.state.boroughData} complaintData={this.state.complaintData}></ComplaintViz>
           </div>
-          </section>
+          {/* </section> */}
         </div>
       </div>
       : <h1>Loading...</h1>

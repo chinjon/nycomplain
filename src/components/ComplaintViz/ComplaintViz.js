@@ -17,14 +17,14 @@ class ComplaintViz extends Component {
 
   render() {
     return (
-      <div className="complaint-viz">
-        <div>
+      <div className="complaint-viz columns">
+        <div className="column is-full">
           <Bar className="complaint-viz-item complaint-types" data={this.setVizDataObj(this.props.complaintData, '# of complaints')}></Bar>
         </div>
-        <div>
+        <div className="column is-full">
           <Bar className="complaint-viz-item" data={this.setVizDataObj(this.props.statusData, 'by status')}></Bar>
         </div>
-        <div>
+        <div className="column">
         <Doughnut className="complaint-viz-item" data={this.setVizDataObj(this.props.boroughData, 'by borough')}></Doughnut>
         </div>
       </div>
